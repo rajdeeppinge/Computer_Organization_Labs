@@ -1,0 +1,38 @@
+LAB5
+
+orig x10
+.start x10
+
+//storing numbers in desired locations
+mov b x23 r1
+store b [x200] r1
+mov b x8 r2
+store b [x201] r2
+4
+store b [x2
+ r5
+
+//st
+
+ry address of starting location
+
+nt as current minimum in r7
+load b [r6] r7
+
+LOOP: add b x1 r6    //since we are at location x200 we need to compare the next element that is at x201
+    load b [r6] r8    //loading value at address in r6 in r8
+    comp b r8 r7    //compering the newly loaded value with the current minimum
+    JLE SETMIN    // if less store that number
+    jmp LIMIT   
+
+//code to store the minimum number
+SETMIN: mov b r8 r7
+    jmp LIMIT   
+
+//code to check the limiting condition
+LIMIT: comp w x204 r6
+    jgt LOOP
+
+//storing the minimum element at location x200
+store b [x200] r7
+.end
